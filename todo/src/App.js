@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import TodoForm from './components/todoForm'
 
-function Todo ({ todo, index}) {
-  return(
-      <div className="todo">
-          {todo.text}  
-      </div>
+function Todo({ todo, index }) {
+  return (
+    <div className="todo">
+      {todo.text}
+    </div>
   )
- }
+}
+
 
 
 function App() {
@@ -26,12 +28,17 @@ function App() {
       isCompleted: false
     },
   ])
+
+  const addTodo = () => {
+
+  }
   return (
     <div className="app">
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo key={index} index={index} todo={todo}/>
+          <Todo key={index} index={index} todo={todo} />
         ))}
+        <TodoForm addTodo={addTodo} />
       </div>
     </div>
   );
